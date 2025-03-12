@@ -1,0 +1,123 @@
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6f86d6, #48c6ef);
+    font-family: 'Roboto', sans-serif;
+}
+
+.payment-receipt {
+    display: flex;
+    flex-direction: row;
+    width: 800px;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.payment-options {
+    background: #f5f7fa;
+    padding: 30px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid #e0e0e0;
+    box-sizing: border-box;
+}
+
+.payment-options h3 {
+    color: #34495e;
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.option {
+    margin-bottom: 25px;
+    padding: 15px;
+    border: 1px solid #dfe4ea;
+    border-radius: 10px;
+    background: #f9fafb;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.option:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.option h4 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.option p {
+    margin: 0;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+.red {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.payment-summary {
+    padding: 30px;
+    width: 60%;
+    color: #34495e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.payment-summary h3 {
+    font-size: 22px;
+    color: #3498db;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.payment-summary p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #2c3e50;
+}
+
+.payment-summary strong {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.payment-button {
+    background: white;
+    color: black;
+    width: 100%;
+    text-align: center;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.payment-button:hover {
+    background-color: black;
+    color: white;
+    transform: translate(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}

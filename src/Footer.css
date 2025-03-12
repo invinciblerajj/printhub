@@ -1,0 +1,34 @@
+.con {
+    background: #34495e;
+    color: #ffffff;
+    padding: 40px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.abt {
+    background: #2c3e50;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.bol {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.col {
+    color: #2ecc71;
+}
+
+.abt p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #bdc3c7;
+    margin-bottom: 15px;
+}
+
+hr {
+    margin-top: 30px;
+    border: 1px solid #2ecc71;
+}
