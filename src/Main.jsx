@@ -13,6 +13,7 @@ function Main({ setData }) {
         const block = document.getElementById('dropdown').value;
         const dt = document.getElementById('date').value;
         const phone = document.getElementById('phone').value;
+        const mail = document.getElementById('mail').value;
         const colour = document.querySelector('input[name="colour"]:checked').value;
         let amount = 0;
 
@@ -20,6 +21,7 @@ function Main({ setData }) {
         formData.append('block', block);
         formData.append('phone', phone);
         formData.append('colour', colour);
+        formData.append('mail', mail);
 
         const files = document.getElementsByName('files')[0].files;
         for (let i = 0; i < files.length; i++) {
@@ -37,7 +39,8 @@ function Main({ setData }) {
             block: block,
             date: dt,
             color: colour,
-            amount: amount
+            amount: amount,
+            mail: mail,
         });
         navigate('/payment');
     };
@@ -63,6 +66,10 @@ function Main({ setData }) {
                         <div className="date-in" onBlur={checkNum}>
                             <h4>Phone Number:</h4>
                             <input type="tel" name="phone" id="phone" required />
+                        </div>
+                        <div className="date-in">
+                            <h4>Email:</h4>
+                            <input type="email" name="mail" id="mail" required />
                         </div>
                         <div className="date-in">
                             Select Location:

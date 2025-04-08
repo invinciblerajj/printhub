@@ -11,7 +11,8 @@ function App(){
         block:'',
         date:'',
         color:'',
-        amount:''
+        amount:'',
+        mail: '',
     });
     return(
         <Router> 
