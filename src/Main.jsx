@@ -29,7 +29,7 @@ function Main({ setData }) {
         }
 
         try {
-            const response = await axios.post('http://localhost:4000/upload', formData);
+            const response = await axios.post('https://printhub-backend.onrender.com/upload', formData);
             amount= response.data.amount;
 
         } catch (err) {

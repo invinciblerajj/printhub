@@ -8,7 +8,7 @@ function Payment({data}) {
     const navigate = useNavigate();
     const handleClick = async () => {
         try {
-            const response = await axios.post('http://localhost:4000/confirm');
+            const response = await axios.post('https://printhub-backend.onrender.com/confirm');
             if(response.status === 200){
                 alert('Order Confirmed');
                 navigate('/');
