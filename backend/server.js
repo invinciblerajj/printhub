@@ -77,42 +77,47 @@ app.post('/upload', upload.array('files'), async (req, res) => {
 });
 
 app.post('/confirm', async (req, res) => {
+    const { phone, block, file_name, date, color, amount, mail } = req.body;
+
     try {
-        if(phone === undefined || block === undefined || file_name === undefined || date === undefined || color ===undefined){
-            res.send('Null Values')
-        }else{
-            await db.query(
-                'INSERT INTO oder_cnfm (contact, filename, block, delivery_dt, amount,confirmation,color) VALUES ($1, $2, $3,$4, $5, $6,$7)',
-                [phone, file_name, block, date, amount+5, 'Yes',color]
-            );
-            transporter.sendMail({
-                from: process.env.COMPANY_MAIL,
-                to: mail,
-                subject: 'Order Confirmation',
-                text:`🎉 Your order has been confirmed! 🎉
-                Details:
-                📄 File Name: ${file_name}
-                📞 Contact: ${phone}
-                🏢 Block: ${block}
-                📅 Delivery Date: ${date}
-                💰 Amount: ₹${amount + 5}
-                
-                Thank you for choosing us!
-                - Team PrintHub`
-                
-            }, (error, info) => {
-                if (error) {
-                    console.error('Error sending email:', error);
-                } else {
-                    console.log('Email sent:', info.response);
-                }
-            });
-            return res.status(200).send('Order Confirmed');
+        if (!phone || !block || !file_name || !date || !color || !mail || !amount) {
+            return res.status(400).send('Null Values');
         }
+
+        await db.query(
+            'INSERT INTO oder_cnfm (contact, filename, block, delivery_dt, amount, confirmation, color) VALUES ($1, $2, $3, $4, $5, $6, $7)',
+            [phone, file_name, block, date, parseInt(amount) + 5, 'Yes', color]
+        );
+
+        transporter.sendMail({
+            from: process.env.COMPANY_MAIL,
+            to: mail,
+            subject: 'Order Confirmation',
+            text: `🎉 Your order has been confirmed! 🎉
+Details:
+📄 File Name: ${file_name}
+📞 Contact: ${phone}
+🏢 Block: ${block}
+📅 Delivery Date: ${date}
+💰 Amount: ₹${parseInt(amount) + 5}
+
+Thank you for choosing us!
+- Team PrintHub`
+        }, (error, info) => {
+            if (error) {
+                console.error('Error sending email:', error);
+            } else {
+                console.log('Email sent:', info.response);
+            }
+        });
+
+        return res.status(200).send('Order Confirmed');
     } catch (err) {
-        console.error(err);    
+        console.error(err);
+        return res.status(500).send('Server Error');
     }
 });
+
 
 app.get('/admin', async (req, res) => {
     try{
